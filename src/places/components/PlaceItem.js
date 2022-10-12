@@ -7,7 +7,7 @@ import Map from '../../shared/components/UIElements/Map';
 import { AuthContext } from '../../shared/context/auth-context';
 import './PlaceItem.css';
 
-const PlaceItem = props => {
+const PlaceItem = (props) => {
   const auth = useContext(AuthContext);
   const [showMap, setShowMap] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -30,7 +30,7 @@ const PlaceItem = props => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <Modal
         show={showMap}
         onCancel={closeMapHandler}
@@ -49,14 +49,14 @@ const PlaceItem = props => {
         header="Are you sure?"
         footerClass="place-item__modal-actions"
         footer={
-          <React.Fragment>
+          <>
             <Button inverse onClick={cancelDeleteHandler}>
               CANCEL
             </Button>
             <Button danger onClick={confirmDeleteHandler}>
               DELETE
             </Button>
-          </React.Fragment>
+          </>
         }
       >
         <p>
@@ -90,7 +90,7 @@ const PlaceItem = props => {
           </div>
         </Card>
       </li>
-    </React.Fragment>
+    </>
   );
 };
 
