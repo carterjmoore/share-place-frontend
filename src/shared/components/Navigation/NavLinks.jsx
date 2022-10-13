@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/auth-context';
 import './NavLinks.css';
 
 const NavLinks = (props) => {
-  const auth = useContext(AuthContext);
+  const authCtx = useContext(AuthContext);
 
   return (
     <ul className="nav-links">
@@ -14,24 +14,24 @@ const NavLinks = (props) => {
           ALL USERS
         </NavLink>
       </li>
-      {auth.isLoggedIn && (
+      {authCtx.isLoggedIn && (
         <li>
-          <NavLink to="/u1/places">MY PLACES</NavLink>
+          <NavLink to={`/${authCtx.userId}/places`}>MY PLACES</NavLink>
         </li>
       )}
-      {auth.isLoggedIn && (
+      {authCtx.isLoggedIn && (
         <li>
           <NavLink to="/places/new">SHARE A PLACE</NavLink>
         </li>
       )}
-      {!auth.isLoggedIn && (
+      {!authCtx.isLoggedIn && (
         <li>
           <NavLink to="/auth">LOGIN</NavLink>
         </li>
       )}
-      {auth.isLoggedIn && (
+      {authCtx.isLoggedIn && (
         <li>
-          <button onClick={auth.logout}>LOGOUT</button>
+          <button onClick={authCtx.logout}>LOGOUT</button>
         </li>
       )}
     </ul>

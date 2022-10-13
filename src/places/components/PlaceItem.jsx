@@ -11,7 +11,7 @@ import ErrorModal from '../../shared/components/UIElements/ErrorModal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 
 const PlaceItem = (props) => {
-  const auth = useContext(AuthContext);
+  const authCtx = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [showMap, setShowMap] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -87,11 +87,11 @@ const PlaceItem = (props) => {
             <Button inverse onClick={openMapHandler}>
               VIEW ON MAP
             </Button>
-            {auth.isLoggedIn && (
+            {authCtx.userId === props.creatorId && (
               <Button to={`/places/${props.id}`}>EDIT</Button>
             )}
 
-            {auth.isLoggedIn && (
+            {authCtx.userId === props.creatorId && (
               <Button danger onClick={showDeleteWarningHandler}>
                 DELETE
               </Button>
