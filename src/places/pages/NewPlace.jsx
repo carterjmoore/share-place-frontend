@@ -4,7 +4,7 @@ import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
 import {
   VALIDATOR_REQUIRE,
-  VALIDATOR_MINLENGTH
+  VALIDATOR_MINLENGTH,
 } from '../../shared/util/validators';
 import { useForm } from '../../shared/hooks/form-hook';
 import './PlaceForm.css';
@@ -14,21 +14,21 @@ const NewPlace = () => {
     {
       title: {
         value: '',
-        isValid: false
+        isValid: false,
       },
       description: {
         value: '',
-        isValid: false
+        isValid: false,
       },
       address: {
         value: '',
-        isValid: false
-      }
+        isValid: false,
+      },
     },
     false
   );
 
-  const placeSubmitHandler = event => {
+  const placeSubmitHandler = (event) => {
     event.preventDefault();
     console.log(formState.inputs); // send this to the backend!
   };

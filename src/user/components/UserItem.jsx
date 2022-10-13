@@ -5,7 +5,7 @@ import Avatar from '../../shared/components/UIElements/Avatar';
 import Card from '../../shared/components/UIElements/Card';
 import './UserItem.css';
 
-const UserItem = props => {
+const UserItem = (props) => {
   return (
     <li className="user-item">
       <Card className="user-item__content">
