@@ -37,7 +37,11 @@ const UserPlaces = () => {
         </div>
       )}
       {!isLoading && loadedPlaces && (
-        <PlaceList items={loadedPlaces} onDeletePlace={placeDeletedHandler} />
+        <PlaceList
+          userId={userId}
+          items={loadedPlaces}
+          onDeletePlace={placeDeletedHandler}
+        />
       )}
     </>
   );
