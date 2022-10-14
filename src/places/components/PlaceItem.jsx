@@ -9,6 +9,7 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 import './PlaceItem.css';
 import ErrorModal from '../../shared/components/UIElements/ErrorModal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import { SERVER_URL } from '../../constants';
 
 const PlaceItem = (props) => {
   const authCtx = useContext(AuthContext);
@@ -76,7 +77,7 @@ const PlaceItem = (props) => {
         <Card className="place-item__content">
           {isLoading && <LoadingSpinner asOverlay />}
           <div className="place-item__image">
-            <img src={props.image} alt={props.title} />
+            <img src={`${SERVER_URL}/${props.image}`} alt={props.title} />
           </div>
           <div className="place-item__info">
             <h2>{props.title}</h2>
