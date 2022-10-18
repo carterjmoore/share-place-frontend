@@ -1,7 +1,9 @@
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useCallback, useRef, useEffect, useContext } from 'react';
 import { API_URL } from '../../constants';
+import { AuthContext } from '../context/auth-context';
 
 export const useHttpClient = () => {
+  const authCtx = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(undefined);
 
@@ -10,6 +12,11 @@ export const useHttpClient = () => {
   const sendRequest = useCallback(
     async (url, method = 'GET', body = null, headers = {}) => {
       setIsLoading(true);
+
+      if (authCtx.isLoggedIn) {
+        headers = { ...headers, Authorization: `Bearer ${authCtx.token}` };
+      }
+
       const httpAbortCtrl = new AbortController();
       activeHttpRequests.current.push(httpAbortCtrl);
 
@@ -39,7 +46,7 @@ export const useHttpClient = () => {
         throw err;
       }
     },
-    []
+    [authCtx]
   );
 
   const clearError = () => {

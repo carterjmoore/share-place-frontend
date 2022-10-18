@@ -17,7 +17,7 @@ import {
 import './Auth.css';
 
 const Auth = () => {
-  const auth = useContext(AuthContext);
+  const authCtx = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
@@ -79,7 +79,7 @@ const Auth = () => {
           { 'Content-Type': 'application/json' }
         );
 
-        auth.login(responseData.user.id);
+        authCtx.login(responseData.userId, responseData.token);
       } catch (err) {}
     } else {
       try {
@@ -95,7 +95,7 @@ const Auth = () => {
           formData
         );
 
-        auth.login(responseData.user.id);
+        authCtx.login(responseData.userId, responseData.token);
       } catch (err) {}
     }
   };
