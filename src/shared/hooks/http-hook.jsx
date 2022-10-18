@@ -1,5 +1,4 @@
 import { useState, useCallback, useRef, useEffect, useContext } from 'react';
-import { API_URL } from '../../constants';
 import { AuthContext } from '../context/auth-context';
 
 export const useHttpClient = () => {
@@ -21,7 +20,7 @@ export const useHttpClient = () => {
       activeHttpRequests.current.push(httpAbortCtrl);
 
       try {
-        const response = await fetch(`${API_URL}${url}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}${url}`, {
           method,
           body,
           headers,
