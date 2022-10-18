@@ -27,13 +27,13 @@ const ImageUpload = (props) => {
     setTouched(true);
 
     let pickedFile;
-    let fileIsValid = isValid;
+    let fileIsValid;
     if (event.target.files?.length === 1) {
       pickedFile = event.target.files[0];
       setFile(pickedFile);
       fileIsValid = true;
     } else {
-      fileIsValid = false;
+      fileIsValid = isValid || false;
     }
     setIsValid(fileIsValid);
     props.onInput(props.id, pickedFile, fileIsValid);
