@@ -12,6 +12,7 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
+  VALIDATOR_MAXLENGTH,
   VALIDATOR_REQUIRE,
 } from '../../shared/util/validators';
 import './Auth.css';
@@ -114,8 +115,8 @@ const Auth = () => {
               id="name"
               type="text"
               label="Your Name"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a name."
+              validators={[VALIDATOR_REQUIRE(), VALIDATOR_MAXLENGTH(20)]}
+              errorText="Please enter a name 1-20 characters long."
               onInput={inputHandler}
             />
           )}
