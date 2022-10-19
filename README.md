@@ -5,3 +5,5 @@
 SharePlace was built on the [MERN stack](https://www.mongodb.com/mern-stack) (MongoDB, Express.js, React.js, Node.js) with the purpose of growing my knowledge of these technologies. While I've done a fair bit of React development prior, this was my first major fullstack app using MongoDB, Express, and Node, so it was a great learning experience, and I can now say I'm very comfortable with this tech stack. The project also taught me about several other important topics like JWT authorization, password hashing, and file upload/storage on a backend.
 
 This project was created while following the [MERN Fullstack Guide](https://www.udemy.com/course/react-nodejs-express-mongodb-the-mern-fullstack-guide/) Udemy course by [Academind](https://academind.com/). I coded along and put my own spin on the implementation for many parts of the app, but credit for the overall design, code structure, and idea goes to them. 
+
+[Link to backend repo.](https://github.com/carterjmoore/share-place-backend/)
